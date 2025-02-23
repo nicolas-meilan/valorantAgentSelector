@@ -25,6 +25,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            visibility: hidden; /* Oculta el contenedor al principio */
         }
         #agent-img {
             object-fit: contain;
@@ -33,7 +34,7 @@
     </style>
 </head>
 <body>
-    <div class="agent-container">
+    <div class="agent-container" id="agent-container">
         <img id="agent-img" src="" alt="Agente">
     </div>
 
@@ -65,6 +66,10 @@
 
                 const randomAgent = agents[Math.floor(Math.random() * agents.length)];
                 document.getElementById("agent-img").src = randomAgent.image;
+                document.getElementById("agent-img").onload = () => {
+                    document.getElementById("agent-container").style.visibility = 'visible';
+                };
+
                 count++;
             }, 100);
         }
