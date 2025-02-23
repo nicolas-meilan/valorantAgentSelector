@@ -38,6 +38,21 @@
         <img id="agent-img" src="" alt="Agente">
     </div>
 
+    <audio id="random-sound" src="random.mp3"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const audio = document.getElementById("random-sound");
+            audio.play().catch(error => {
+                console.log("Autoplay bloqueado, esperando interacción.");
+            });
+            document.addEventListener("click", () => {
+                if (audio.paused) {
+                    audio.play();
+                }
+            }, { once: true });
+        });
+    </script>
     <script>
         let agents = [];
 
