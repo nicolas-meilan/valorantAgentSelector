@@ -25,7 +25,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            visibility: hidden; /* Oculta el contenedor al principio */
+            visibility: hidden;
         }
         #agent-img {
             object-fit: contain;
@@ -43,6 +43,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const audio = document.getElementById("random-sound");
+            audio.volume = 0.3;
             audio.play().catch(error => {
                 console.log("Autoplay bloqueado, esperando interacción.");
             });
